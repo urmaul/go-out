@@ -1,0 +1,18 @@
+# Make sure that only index.php is called
+DirectoryIndex index.php
+
+RewriteEngine on
+
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# otherwise forward it to index.php
+RewriteRule (.*) index.php?name=$1 [L,QSA]
+
+
+# Forward dangerous paths to index.php
+RewriteCond %{REQUEST_FILENAME} \.git/ [OR]
+RewriteCond %{REQUEST_FILENAME} \.gitignore$ [OR]
+RewriteCond %{REQUEST_FILENAME} \README.md$
+RewriteRule . index.php [L]
