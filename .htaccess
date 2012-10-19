@@ -1,10 +1,10 @@
 # Make sure that only index.php is called
-DirectoryIndex index.php
+DirectoryIndex name.php
 
 RewriteEngine on
 
-RewriteCond %{QUERY_STRING} ^$
-RewriteRule (.*) index.php?name=$1 [L]
+RewriteCond %{QUERY_STRING} =''
+RewriteRule (.*) name.php?name=$1 [L]
 
 RewriteCond %{QUERY_STRING} ^.+$
 RewriteRule .* url.php [L,QSA]
@@ -14,4 +14,4 @@ RewriteRule .* url.php [L,QSA]
 RewriteCond %{REQUEST_FILENAME} \.git/ [OR]
 RewriteCond %{REQUEST_FILENAME} \.gitignore$ [OR]
 RewriteCond %{REQUEST_FILENAME} \README.md$
-RewriteRule . index.php [L]
+RewriteRule . name.php [L]
