@@ -3,12 +3,11 @@ DirectoryIndex index.php
 
 RewriteEngine on
 
-# if a directory or a file exists, use it directly
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule (.*) index.php?name=$1 [L]
 
-# otherwise forward it to index.php
-RewriteRule (.*) index.php?name=$1 [L,QSA]
+RewriteCond %{QUERY_STRING} ^.+$
+RewriteRule .* url.php [L,QSA]
 
 
 # Forward dangerous paths to index.php

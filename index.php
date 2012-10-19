@@ -12,9 +12,10 @@ if ($config === false) {
 
 $config += $defaults;
 
-echo '<pre>';
-var_export($_SERVER);
-var_export($_GET);
+echo('<pre>' . var_export(__FILE__, true) . "</pre>\n");
+//echo('<pre>' . var_export($_SERVER, true) . "</pre>\n");
+//echo('<pre>' . var_export($_GET, true) . "</pre>\n");
+echo('<pre>' . var_export($_GET['name'], true) . "</pre>\n");
 die();
 	
 if ( isset($config['links'][$to]) ) {
