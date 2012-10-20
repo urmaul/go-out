@@ -1,19 +1,19 @@
 <?php
 
-$defaultConfig = array(
-	'redirectStatus' => 302,
-	'links' => array(),
-);
-
 function initConfig()
 {
+	$defaultConfig = array(
+		'redirectStatus' => 302,
+		'links' => array(),
+	);
+	
 	$config = @include dirname(__FILE__) . '/config.php';
 
 	if ($config === false) {
 		$config = array();
 	}
-
-	return array_merge($defaults, $config);
+	
+	return array_merge($defaultConfig, $config);
 }
 
 function redirect($url)

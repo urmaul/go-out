@@ -3,9 +3,10 @@ DirectoryIndex name.php
 
 RewriteEngine on
 
-RewriteCond %{QUERY_STRING} =''
+RewriteCond %{QUERY_STRING} =""
 RewriteRule (.*) name.php?name=$1 [L]
 
+RewriteCond %{REQUEST_FILENAME} !name.php$
 RewriteCond %{QUERY_STRING} ^.+$
 RewriteRule .* url.php [L,QSA]
 
