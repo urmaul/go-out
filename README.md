@@ -1,16 +1,13 @@
-go-out
-======
+# go-out
 
 External links hiding and redirecting script.
 
-How to install
---------------
+## How to install
 
 1. Copy script dir to your site dir.
 2. Create "config.php" file with config and links list.
 
-Config file sample
-------------------
+### Config file sample
 
 ```php
 <?php
