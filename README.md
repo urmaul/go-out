@@ -6,8 +6,8 @@ External links hiding and redirecting script.
 How to install
 --------------
 
-# Copy script dir to your site dir.
-# Create "config.php" file with config and links list.
+1. Copy script dir to your site dir.
+2. Create "config.php" file with config and links list.
 
 Config file sample
 ------------------
