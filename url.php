@@ -2,4 +2,7 @@
 
 require dirname(__FILE__) . '/core.php';;
 
-redirect($_SERVER['QUERY_STRING']);
+$url = $_SERVER['QUERY_STRING'];
+
+logQuery('url', $url, $url);
+redirect($url);
