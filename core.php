@@ -35,6 +35,16 @@ function notFound()
 
 # Log #
 
+function getHostInfo()
+{
+	if (!empty($_SERVER['HTTPS']) && strcasecmp($_SERVER['HTTPS'],'off'))
+		$http='https';
+	else
+		$http='http';
+	
+	return $http.'://'.$_SERVER['HTTP_HOST'];
+}
+
 function getLogData($type, $name, $url = '')
 {
 	return array(
@@ -45,6 +55,7 @@ function getLogData($type, $name, $url = '')
 		'time' => date('Y-m-d H:i:s'),
 		'ip'   => $_SERVER['REMOTE_ADDR'],
 		'ref'  => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '',
+		'sref' => isset($_SERVER['HTTP_REFERER']) ? str_replace(getHostInfo(), '', $_SERVER['HTTP_REFERER']) : '',
 	);
 }
 
